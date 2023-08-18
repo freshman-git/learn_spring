@@ -1,0 +1,13 @@
+org\example\pojo\DeptExample$GeneratedCriteria.class
+org\example\mapper\EmpMapper.class
+org\example\pojo\Emp.class
+org\example\pojo\EmpExample$Criterion.class
+org\example\pojo\DeptExample$Criterion.class
+org\example\pojo\Dept.class
+org\example\pojo\EmpExample.class
+org\example\pojo\DeptExample.class
+org\example\mapper\DeptMapper.class
+org\example\pojo\DeptExample$Criteria.class
+org\example\pojo\EmpExample$Criteria.class
+org\example\pojo\EmpExample$GeneratedCriteria.class
+org\example\utils\SqlSessionUtil.class

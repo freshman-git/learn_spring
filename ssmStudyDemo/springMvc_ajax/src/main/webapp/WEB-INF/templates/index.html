@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>index</h1>
+<a th:href="@{/hello}">test</a>
+
+<a th:href="@{/test/downLoad}">下载图片</a>
+<!--enctype="multipart/form-data"
+    将表单中的数据以二进制形式相应给服务器-->
+<form th:action="@{/test/upLoad}" method="post" enctype="multipart/form-data">
+    头像：<input type="file" name="photo"><br>
+    <input type="submit" value="上传">
+</form>
+</body>
+</html>

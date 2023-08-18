@@ -1,0 +1,5 @@
+org\example\test\TestWiredXml.class
+org\example\test\TestXml.class
+org\example\test\LifeCycleTest.class
+org\example\test\DataSourceTest.class
+org\example\test\TestFactoryBean.class

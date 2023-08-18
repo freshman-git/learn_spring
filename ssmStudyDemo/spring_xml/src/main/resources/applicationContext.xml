@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="studentOne" class="org.example.pojo.Student">
+        <property name="name" value="zhangsan"/>
+        <property name="age" value="18"/>
+    </bean>
+
+<!--    <bean id="studentTwo" class="org.example.pojo.Student">-->
+<!--&lt;!&ndash;        当实体类中只有一个构造方法时，<constructor-arg>可以直接按顺序赋值&ndash;&gt;-->
+<!--        <constructor-arg value="&lt;lisi&gt;"></constructor-arg>-->
+<!--        <constructor-arg value="19"/>-->
+<!--    </bean>-->
+
+    <bean id="studentThree" class="org.example.pojo.Student">
+        <property name="name">
+            <value><![CDATA[<wangwu>]]></value>
+        </property>
+        <property name="age" value="20"/>
+    </bean>
+
+    <bean id="studentFour" class="org.example.pojo.Student">
+        <property name="name" value="zhaoliu"/>
+        <property name="age" value="21"/>
+        <property name="clazz" ref="clazzOne"/>
+    </bean>
+
+    <bean id="clazzOne" class="org.example.pojo.Clazz">
+        <property name="cid" value="1"/>
+        <property name="cname" value="a"/>
+    </bean>
+
+    <bean id="studentFive" class="org.example.pojo.Student">
+        <property name="name" value="tianqi"/>
+        <property name="age" value="22"/>
+        <property name="clazz" ref="clazzOne"/>
+        <property name="hobby">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="studentSix" class="org.example.pojo.Student">
+        <property name="name" value="tianqi"/>
+        <property name="age" value="22"/>
+        <property name="clazz" ref="clazzOne"/>
+        <property name="hobby">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+        <property name="moneys">
+            <array>
+                <ref bean="money1"/>
+                <ref bean="money2"/>
+                <ref bean="money3"/>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="studentSeven" class="org.example.pojo.Student">
+        <property name="name" value="tianqi"/>
+        <property name="age" value="22"/>
+        <property name="clazz" ref="clazzOne"/>
+        <property name="hobby">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+        <property name="moneys">
+            <array>
+                <ref bean="money1"/>
+                <ref bean="money2"/>
+                <ref bean="money3"/>
+            </array>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="Chinese" value-ref="teacher1"/>
+                <entry key="Math" value-ref="teacher2"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="studentEight" class="org.example.pojo.Student">
+        <property name="name" value="tianqi"/>
+        <property name="age" value="22"/>
+        <property name="clazz" ref="clazzOne"/>
+        <property name="hobby">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+        <property name="moneys">
+            <array>
+                <ref bean="money1"/>
+                <ref bean="money2"/>
+                <ref bean="money3"/>
+            </array>
+        </property>
+        <property name="map" ref="teacherMap"/>
+    </bean>
+
+    <bean id="studentNine" class="org.example.pojo.Student"
+          p:name="aaa" p:age="23" p:map-ref="teacherMap">
+    </bean>
+
+    <bean id="teacher1" class="org.example.pojo.Teacher">
+        <property name="tid" value="1"/>
+        <property name="tName" value="zhang"/>
+    </bean>
+    <bean id="teacher2" class="org.example.pojo.Teacher">
+        <property name="tid" value="2"/>
+        <property name="tName" value="li"/>
+    </bean>
+
+    <bean id="money1" class="org.example.pojo.Money">
+        <property name="country" value="China"/>
+    </bean>
+
+    <bean id="money2" class="org.example.pojo.Money">
+        <property name="country" value="America"/>
+    </bean>
+
+    <bean id="money3" class="org.example.pojo.Money">
+        <property name="country" value="Canada"/>
+    </bean>
+
+    <bean id="clazzTwo" class="org.example.pojo.Clazz">
+        <property name="cid" value="2"/>
+        <property name="cname" value="b"/>
+        <property name="list">
+            <list>
+                <ref bean="studentOne"/>
+                <ref bean="studentThree"/>
+                <ref bean="studentFive"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="clazzThree" class="org.example.pojo.Clazz">
+        <property name="cid" value="2"/>
+        <property name="cname" value="b"/>
+        <property name="list" ref="studentList"/>
+    </bean>
+
+    <util:list id="studentList">
+        <ref bean="studentFour"/>
+        <ref bean="studentFive"/>
+        <ref bean="studentSix"/>
+    </util:list>
+
+    <util:map id="teacherMap">
+        <entry key="Chinese" value-ref="teacher1"/>
+        <entry key="Math" value-ref="teacher2"/>
+    </util:map>
+</beans>
