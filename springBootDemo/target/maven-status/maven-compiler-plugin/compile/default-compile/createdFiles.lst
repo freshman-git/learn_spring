@@ -1,0 +1,4 @@
+org\example\pojo\User.class
+org\example\controller\HelloController.class
+org\example\HelloApplication.class
+org\example\config\MyConfig.class
