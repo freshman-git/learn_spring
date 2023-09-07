@@ -23,7 +23,7 @@
             <td th:text="${employee.email}"></td>
             <td th:text="${employee.gender}"></td>
             <td>
-                <a href="">delete</a>
+                <a th:href="@{'/delete/'+${employee.id}}">delete</a>
                 <a th:href="@{'/get/'+${employee.id}}">update</a>
             </td>
         </tr>

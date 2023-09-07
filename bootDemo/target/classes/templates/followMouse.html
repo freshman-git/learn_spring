@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        #areaDiv{
+            width: 200px;
+            height: 100px;
+            background-color: silver;
+        }
+        #showDiv{
+            width: 200px;
+            height: 50px;
+            background-color: aqua;
+            margin-top: 10px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        function bind(obj,eventStr,callback){
+            obj.addEventListener(eventStr,callback,false);
+        }
+
+        window.onload = function () {
+
+            let areaDiv = document.getElementById("areaDiv");
+            let showDiv = document.getElementById("showDiv");
+
+            areaDiv.onmousemove = function (event) {
+                let clientX = event.clientX;
+                let clientY = event.clientY;
+
+                showDiv.innerHTML = "x:"+clientX+",y:"+clientY;
+            };
+
+            let btn = document.getElementById("btn");
+
+            btn.addEventListener("click",function () {
+                alert(1);
+                alert(2);
+            },false);
+
+            let btn2 = document.getElementById("btn2");
+            bind(btn2,"click",function () {
+                alert(1);
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <div id="areaDiv" ></div>
+    <div id="showDiv" ></div>
+    <button id="btn">button</button>
+    <button id="btn2">button2</button>
+
+</body>
+</html>

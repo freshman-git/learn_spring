@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        /**
+         * setInterval()
+         * 定时调用，每隔一段时间执行一次
+         * 参数：1。回调函数，该函数会每隔一段时间被调用一次
+         *      2.每次调用间隔时间，单位是ms
+         *
+         * setTimeOut
+         *      延时调用，过一段时间再执行
+         *      参数同setInterval()
+         */
+        window.onload = function () {
+
+            let count = document.getElementById("count");
+            let num = 1;
+            let interval1 = setInterval(function () {
+                count.innerHTML = num++;
+
+                if (num == 10){
+                    //关闭定时器
+                    clearInterval(interval1);
+                    count.innerHTML = null;
+                }
+            },100);
+
+        }
+    </script>
+</head>
+<body>
+    <h1 id="count">1</h1>
+</body>
+</html>

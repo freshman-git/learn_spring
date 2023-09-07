@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: silver;
+            position: absolute;
+            left: 0px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+
+
+        window.onload = function () {
+
+            // function getStyle(obj,name){
+            //     return  getComputedStyle(obj,null)[name];
+            // }
+
+            let btn = document.getElementById("btn");
+            let box = document.getElementById("box");
+
+            btn.onclick = function () {
+                move(box,800,10);
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    <button id="btn">button</button>
+    <div id="box"></div>
+</body>
+</html>

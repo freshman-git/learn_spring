@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--    <input type="text" id="search">-->
+<!--    <h1 id="title"></h1>-->
+<!--    <p id="list"></p>-->
+<!--    <script>-->
+<!--        search.onclick() = function () {-->
+<!--            .then(res => {-->
+
+<!--            })-->
+<!--        }-->
+
+    <div id="box1"></div>
+
+    <script>
+
+        let box1 = document.getElementById("box1");
+        box1.addEventListener("click",function () {
+            setTimeout( () => {
+                this.style.backgroundColor = 'pink';
+            },2000);
+        })
+
+        // function connect({username,password,age}) {
+        //     console.log(username);
+        //     console.log(password);
+        //     console.log(age);
+        // }
+        //
+        // connect({
+        //     username:"abc",
+        //     password:1234,
+        //     age:16
+        // });
+
+
+        //数组合并
+        // const arra = ['a','b'];
+        // const arrb = ["c","d"];
+        // // const arr = arra.concat(arrb);
+        // const arr = [...arra,...arrb];
+        // console.log(arr);
+
+
+        //数组克隆
+        // const arra = ['a','b','c'];
+        // const copyArra = [...arra];
+        // console.log(copyArra);
+
+
+        //添加属性 方法1
+        // let game = {
+        //     name: "abc"
+        // };
+        // let methods = {
+        //     up: Symbol(),
+        //     down: Symbol()
+        // };
+        //
+        // game[methods.up]=function () {
+        //     console.log("up");
+        // }
+        // game[methods.down] = function () {
+        //     console.log("down");
+        // }
+        //
+        // console.log(game);
+
+
+        //添加属性 方法2
+        let game = {
+            name: "games",
+            [Symbol("say")]:function () {
+                console.log("say...");
+            },
+            [Symbol("kill")]:function () {
+                console.log("kill...");
+            }
+        }
+
+        console.log(game);
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+org\example\pojo\User.class
+org\example\controller\HelloController.class
+org\example\controller\ViewController.class
+org\example\controller\ScopeController.class
+org\example\controller\TestParamsController.class

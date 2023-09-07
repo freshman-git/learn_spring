@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+
+
+
+    <script type="text/javascript">
+
+        function getStyle(obj,name){
+            return getComputedStyle(obj,null)[name];
+        }
+
+        window.onload = function () {
+            let box1 = document.getElementById("box1");
+            let btn = document.getElementById("btn");
+
+            btn.onclick = function () {
+                box1.style.width = "200px";
+                box1.style.height = "200px";
+                box1.style.backgroundColor = "yellow";
+                // alert(box1.style.width);
+                // let computedStyle = getComputedStyle(box1,null);
+                // alert(computedStyle.width);
+                alert(getStyle(box1,"width"));
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <button id="btn">click</button>
+    <div id="box1"></div>
+</body>
+</html>

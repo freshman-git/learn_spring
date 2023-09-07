@@ -31,6 +31,7 @@ public class UpLoadAndDownLoadController {
         ServletContext servletContext = session.getServletContext();
         //获取服务器中文件的真实路径
         String realPath = servletContext.getRealPath("img");
+//        System.out.println(realPath+"===============================");
         realPath += File.separator+"1.jpg";
         //创建输入流
         FileInputStream fileInputStream = new FileInputStream(realPath);

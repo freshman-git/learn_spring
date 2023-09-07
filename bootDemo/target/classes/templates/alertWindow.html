@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .alert{
+            display: none;
+            /*justify-content: center;*/
+            /*align-items: center;*/
+            width: 70%;
+            height: 400px;
+            background-color: cornflowerblue;
+            position: fixed;
+            top: 100px;
+            left: 230px;
+        }
+        .close{
+            margin-left: 975px;
+        }
+        /*#right{*/
+        /*    margin-left: 500px;*/
+        /*    border: solid 1px black;*/
+        /*    width: 497px;*/
+        /*    height: 370px;*/
+        /*}*/
+
+        /*#left{*/
+        /*    border: 1px solid black;*/
+        /*    width: 498px;*/
+        /*    height: 370px;*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+    <button class="btn-alert">点击显示弹窗</button>
+
+    <div class="alert">
+        <div class="alert-body">
+            <button class="close">X</button>
+            <div id="left">
+                用户名：<input id="username" disabled/><br>
+                转账金额：<input id="money" style="margin-top: 10px" disabled/>
+            </div>
+            <div id="right">
+                收款账户：<input id="account" disabled/>
+                是否已校验：<input type="radio" name="checkValue" value="true">是
+                <input type="radio" name="checkValue" value="false">否
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // document.cookie = 'id = 1';
+        //
+        // const cookies = document.cookie.split(";").map(cookie => cookie.trim().split("="));
+        // const id = cookies.find(cookie => cookie[0] === id)[1];
+        //
+        // console.log(id);
+
+        // localStorage.setItem("id",1);
+        // let item = localStorage.getItem("id");
+        // console.log(item);
+
+        let xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.open("GET","./json02.json");
+        xmlHttpRequest.send();
+        xmlHttpRequest.onreadystatechange = function () {
+
+            if (xmlHttpRequest.readyState === 4 && xmlHttpRequest.status ===200){
+                let response = JSON.parse(xmlHttpRequest.response);
+                // console.log(response);
+                fillBlank(response);
+            }
+        }
+
+        function fillBlank(array){
+            let arrayElement = array[0];
+            let usernameEl = document.querySelector("#username");
+            let moneyEl = document.querySelector("#money");
+            let accountEl = document.querySelector("#account");
+            let radios = document.getElementsByName("checkValue");
+
+            usernameEl.value = arrayElement.name;
+            moneyEl.value = arrayElement.money;
+            accountEl.value = arrayElement.account;
+            if (arrayElement.isVer === "true"){
+                radios[0].checked = true;
+                radios[1].checked = false;
+                radios[1].disabled = true;
+            }else {
+                radios[0].checked = false;
+                radios[1].checked = true;
+                radios[0].disabled = true;
+            }
+
+        }
+
+        let btn = document.querySelector(".btn-alert");
+        let alertWindow = document.querySelector(".alert");
+        let closeBtn = document.querySelector(".close");
+        btn.onclick = function () {
+            alertWindow.style.display = "flex";
+        }
+        closeBtn.onclick = function () {
+            alertWindow.style.display = "none";
+        }
+
+        // let radios = document.getElementsByName("checkValue");
+        // radios[0].checked = false;
+        // radios[0].disabled = true;
+        // radios[1].checked = true;
+        //
+        // let usernameEl = document.querySelector("#username");
+        // let moneyEl = document.querySelector("#money");
+        // let accountEl = document.querySelector("#account");
+        // usernameEl.value = "abc";
+        // moneyEl.value = 5000;
+        // accountEl.value = "12345";
+    </script>
+</body>
+</html>

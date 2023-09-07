@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #testImage{
+            width: 200px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./img/1.jpg" id="testImage"><br>
+    <canvas id="mycanvas" width="200px" height="300px"></canvas>
+    <script type="text/javascript">
+        var cvs = document.getElementById("mycanvas");
+        var ctx = cvs.getContext("2d");
+        const img = document.getElementById("testImage");
+
+        const rects = [{x:10,y:10,w:20,h:5}];
+
+        const drawConfig = {
+            //划线宽度
+            lineWidth: 2,
+            //划线颜色
+            lineColor: "red"
+        }
+
+        let imgwidth;                       // 图片宽度
+        let imgheight;                      // 图片高度
+        let imgObj = new Image();           // 创建image对象
+        imgwidth = img.offsetWidth;
+        imgheight = img.offsetHeight;
+        imgObj.src = img.src;
+
+        img.onload = function () {
+            ctx.drawImage(img,0,0,img.offsetWidth,img.offsetHeight);
+            _drawRects(ctx,rects,drawConfig)
+        }
+
+
+
+        function _drawRects(context,rects,config) {
+
+            if (rects.length === 0){
+                return;
+            }
+
+            //根据画框的坐标和宽高画框
+            for (let i = 0; i < rects.length; i++){
+                context.beginPath();
+                context.lineWidth = config.lineWidth;
+                context.strokeStyle = config.lineColor;
+                context.strokeRect(rects[i].x,rects[i].y,rects[i].w,rects[i].h);
+            }
+        }
+    </script>
+</body>
+</html>

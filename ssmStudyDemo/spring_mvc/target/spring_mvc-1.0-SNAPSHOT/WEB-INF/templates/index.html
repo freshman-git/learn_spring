@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+<h1>Hello</h1>
+<a href="/SpringMVC/hello">手动填充路径</a>
+<a href="/hello">测试绝对路径</a>
+<a th:href="@{/hello}">测试SpringMVC</a><br>
+
+<!--<form th:action="@{/param/servletAPI}" method="post">-->
+<!--    用户名:<input type="text"  name="username">-->
+<!--    密码:<input type="password" name="password">-->
+<!--    <input type="submit" value="提交">-->
+<!--</form>-->
+<form th:action="@{/param}" method="post">
+    用户名:<input type="text"  name="username">
+    密码:<input type="password" name="password">
+    <input type="submit" value="提交">
+</form>
+
+<form th:action="@{/param/pojo}" method="post">
+    用户名:<input type="text"  name="username">
+    密码:<input type="password" name="password">
+    <input type="submit" value="提交">
+
+    <hr>
+
+    <a th:href="@{/mav}">测试通过ModelAndView向请求域共享数据</a><br>
+    <a th:href="@{/model}">测试通过Model向请求域共享数据</a><br>
+    <a th:href="@{/modelMap}">测试通过ModelMap向请求域共享数据</a><br>
+    <a th:href="@{/map}">测试通过Map向请求域共享数据</a><br>
+    <a th:href="@{/session}">测试会话域共享数据</a><br>
+    <a th:href="@{/application}">测试向应用域共享数据</a>
+    <hr>
+
+    <a th:href="@{/view/thymeleaf}">测试thymeleafView视图</a><br>
+    <a th:href="@{/view/forward}">测试forward视图InternalResourceView</a><br>
+    <a th:href="@{/view/redirect}">测试redirect视图RedirectView</a><br>
+</form>
+</body>
+</html>

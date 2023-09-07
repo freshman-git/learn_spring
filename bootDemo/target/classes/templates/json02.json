@@ -1,0 +1,8 @@
+[
+  {
+    "name": "张三",
+    "money": 5000,
+    "account": 12345,
+    "isVer": true
+  }
+]

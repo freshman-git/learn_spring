@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+
+
+<!--    script标签一旦用于引入外部文件，标签中就不能再编写代码了，即使编写了也会忽略
+        可以另外再创建一个script标签，在里面写-->
+    <script type="text/javascript" src="js/script.js">
+
+        /**
+         * 1.js严格区分大小写
+         * 2.每一条语句以分号结尾
+         * 3.会忽略多个空格和换行，可以利用这个规则对代码进行格式化
+         */
+
+
+        /**
+         * 数据类型   前五种是基本数据类型，最后一种是引用类型
+         *  String
+         *  Number  数值
+         *  Boolean
+         *  Null
+         *  Undefined 未定义
+         *  Object  对象
+         */
+
+
+        /**
+         * 1.全局作用域
+         *      全局作用域在页面打开时创建，在页面关闭时销毁
+         *      全局作用域中
+         *          创建的变量都会作为window对象的属性保存
+         *          创建的方法都会作为window对象的方法保存
+         *
+         *      函数作用域在调用方法时创建，方法执行完毕销毁
+         */
+
+    </script>
+
+
+    <script>
+
+        //往body中写内容
+        // document.write("hello");
+
+        // alert("javascript");
+
+        //向控制台输出内容
+        // console.log("js");
+
+
+
+    </script>
+</head>
+<body>
+
+
+
+<!--    <button onclick="alert('hhhh');">这是按钮</button>-->
+<!--    <a href="javascript:alert('hou');">href</a>-->
+<!--    <a href="javascript:;">没有任何跳转</a>-->
+
+    <script>
+
+        // var input = prompt('please input');
+        var a = 123;
+
+        const pi = 3.14;
+
+        let b = 123;
+        // b+=1;
+        b--;
+
+        //与运算，两个都是true则返回后面的，两个都是false返回前面的
+        let res = 6 && 5;
+
+        //undefined 衍生自null 所以返回值是ture
+        var b1 = undefined==null;
+
+        let test = new Object();
+
+        // document.write("b1="+b1);
+
+        let obj1 = {name:"a",age:"19"};
+        let obj = new Object();
+        obj.name="zcz";
+        obj.age=18;
+        // document.write(obj.toString());
+        // console.log(obj)
+        // console.log(obj1)
+
+        let  obj2 = {
+            name:"b",
+            test:{name:"c",age:11}
+        };
+        // console.log(obj2);
+
+        function fun1(name) {
+            // document.write("name="+name);
+            return name;
+        }
+        // let name = prompt("input name");
+        // let result = fun1(name);
+        // document.write(result);
+        //
+        // //函数对象
+        // //立即执行函数,只会执行一次
+        // (function () {
+        //     document.write("!!!!!");
+        // })();
+
+        //立即执行函数也可以传参
+        // (function (a,b) {
+        //     document.write("a="+a);
+        //     document.write("b="+b);
+        // })(123,456);
+
+        // for (let n in obj1){
+        //     document.write("属性"+n+":"+obj1[n]);
+        // }
+        //
+        // function Person(name,age) {
+        //     this.name=name;
+        //     this.age=age;
+        // }
+
+
+
+        // let person = new Person("a",1);
+        //
+        // person.toString = function () {
+        //     return "Person[name="+this.name+",age="+this.age+"]";
+        // }
+        //{}表示一组语句，要么都执行，要么都不执行
+        // {
+        //     document.write("a");
+        //     document.write("a");
+        //     document.write("a");
+        // }
+
+        // console.log(a);
+        // document.write("a="+a+",b="+b+",pi="+pi);
+        // document.write("input="+input);
+
+        // document.write("person:"+person);
+
+        let arr = [1,2,3,4,5];
+        //slice(startIndex,endIndex)  截取一个从startIndex开始到endIndex结束，且不包含endIndexDefinitely数组封装到一个新数组中返回
+        //如果不写第二个参数则从开始位置截取到最后
+        //slice(1,-1)  -1表示从后面数， arr.slice(1,-1) 是[2,3,4]，截取到倒数第一个，不包含倒数第一个
+        // let numbers = arr.slice(0,2);
+        // document.write(numbers);
+        // document.write(arr.slice(1,-1));
+        // console.log(typeof  numbers);//object
+
+        //splice(startIndex,count),从数组中删除元素，返回值numbers1是被删除的元素,从startIndex开始删除count个元素
+        //splice(startIndex,count,newElement),删除元素，并添加新的的元素，插入位置是startIndex
+        // let numbers1 = arr.splice(0,2);
+        // document.write("arr:"+arr+",numbers1:"+numbers1);
+        // let numbers = arr.splice(0,1,6);
+        // document.write(numbers);
+        // document.write(arr);
+
+        let arr1 = [3,1,2];
+        // document.write(arr.concat(arr1));
+        // let sort = arr1.sort();
+        // document.write(sort);
+
+        // let regExp = new RegExp("[A-z]");
+        let regExp1 = new RegExp("[a-z]{6,6}");
+        document.write(regExp1.test("abcdef"));
+        // console.log(regExp.test("1"));
+    </script>
+</body>
+</html>

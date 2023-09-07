@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 500px;
+        }
+        th,td{
+            border: 1px solid black;
+            text-align: center;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+
+<!--    <div id="div1" data-src="1" data-scm="abc">1</div>-->
+<!--    <div id="div2">2</div>-->
+<!--    <div id="div3">3</div>-->
+
+<!--    <button id="btn" disabled>请阅读协议（3s）</button>-->
+
+
+    <table>
+        <thead>
+            <th>name</th>
+            <th>age</th>
+            <th>sex</th>
+            <th>birthday</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <div id="box">
+
+    </div>
+    <script>
+
+        const arr = ["a","b","c"];
+        const it = arr[Symbol.iterator]();
+
+
+        // const divs = document.querySelector("div");
+        // const dataset = divs.dataset;
+        // console.log("src:"+dataset.src);
+        // console.log("scm:"+dataset.scm);
+        // let i = 5;
+        // const div1 = document.querySelector("#div1");
+        // div1.innerHTML = `还有${i}秒`;
+        // let i = 3;
+        // const btn = document.querySelector("#btn");
+        // const interval = setInterval(function () {
+        //     i--;
+        //     btn.innerHTML = `请阅读协议（${i}s）`;
+        //     if (i<=0){
+        //         clearInterval(interval);
+        //         btn.innerHTML = "我同意"
+        //         btn.disabled = false;
+        //     }
+        // },1000);
+
+        // document.onkeydown = function(event){
+        //     if (event.key === "Enter"){
+        //         alert("is enter");
+        //     }
+        // };
+
+
+        const box = document.querySelector("#box");
+        box.addEventListener("touchstart",function () {
+            alert("hello");
+        })
+
+        const ths = document.getElementsByTagName("th");
+        // console.log(ths.length);
+        let _this = this;
+        const parentNode = ths[0].parentNode;
+        for (let i=0;i<ths.length;i++){
+            // console.log(ths[i].innerHTML);
+            parentNode.removeChild(this.ths[0]);
+        }
+
+        // const date = new Date();
+        // console.log(date.getFullYear()+","+(date.getMonth()+1)+","+date.getDate());
+        // console.log(date.toLocaleString());
+
+        let xmlHttpRequest = new XMLHttpRequest();
+
+        xmlHttpRequest.open("GET","./json01.json");
+        // xmlHttpRequest.open("GET","localhost:8080/getUser");
+        xmlHttpRequest.send();
+        xmlHttpRequest.onreadystatechange = function () {
+            if (xmlHttpRequest.readyState === 4 ){
+                if (xmlHttpRequest.status === 200){
+                    let res = JSON.parse(xmlHttpRequest.response);
+                    // console.log(res);
+                    // document.querySelector("#name").innerHTML = res[0].name;
+                    // document.querySelector("#age").innerHTML = res[0].age;
+                    // document.querySelector("#sex").innerHTML = res[0].sex;
+                    getUserInfo(res);
+                }
+            }
+        };
+
+        function getUserInfo(userList) {
+            userList.forEach(user=>{
+                let tr = document.createElement("tr");
+                let nameTd = document.createElement("td");
+                nameTd.innerHTML = user.name;
+                let ageTd = document.createElement("td");
+                ageTd.innerHTML = user.age;
+                let sexTd = document.createElement("td");
+                sexTd.innerHTML = user.sex;
+                let birthdayTd = document.createElement("td");
+                birthdayTd.innerHTML = bornDate(new Date(user.birthday));
+                // birthdayTd.innerHTML = user.birthday;
+                tr.appendChild(nameTd);
+                tr.appendChild(ageTd);
+                tr.appendChild(sexTd);
+                tr.appendChild(birthdayTd);
+                document.querySelector("tbody").appendChild(tr);
+                // console.log(bornDate(new Date("1997-08-01T00:00:00")));
+            })
+        };
+        
+        function bornDate(date) {
+            let year = date.getFullYear();
+            let month = date.getMonth();
+            let day = date.getDay();
+            //join方法用于把数组中所有元素转换成一个字符串
+            //join(),括号里为空，默认用逗号分割
+            return [year,month,day].map(a=>patch0(a)).join("-");
+        }
+
+        function patch0(val) {
+            return (val+"").length >1 ? val : "0"+val;
+        }
+    </script>
+<!--    <script src="http://localhost:8080/getUser"></script>-->
+
+</body>
+</html>

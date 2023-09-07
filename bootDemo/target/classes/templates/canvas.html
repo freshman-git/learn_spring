@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #view{
+            /* height: 500px;
+            width: 500px; */
+            /* canvas的宽度和高度设置在标签内，否则线条会变粗颜色变淡 */
+            /* background-color: antiquewhite; */
+            border: 1px red solid;
+        }
+        #canvasDiv{
+            background-color: black;
+            width: 40%;
+            height: 760px;
+        }
+        /*#canvasDiv2{*/
+        /*    background-color:black;*/
+        /*    width: 50%;*/
+        /*    height: 200px;*/
+        /*    margin-top: 20px;*/
+        /*    margin-left: 50%;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <div id="canvasDiv"></div>
+    <div id="canvasDiv2"></div>
+
+    <script type="text/javascript" src="./js/canvas.js"></script>
+    <script type="text/javascript">
+        const localBox = [];
+        localBox.push({src:"./img/20211227223307.jpg",
+            rects:[{x:300,y:180,w:100,h:50},{x:100,y:30,w:100,h:50}]});
+
+        const localBox2 = [];
+        localBox2.push({src:"./img/20211227223538.jpg",
+            rects:[{x:600,y:90,w:400,h:500},{x:200,y:60,w:100,h:50}]});
+
+        // localBox.push({src:"./img/20211227223600.jpg",
+        //     rects:[{x:400,y:600,w:400,h:400},{x:1200,y:800,w:500,h:500}]});
+
+        const config = {
+            lineWidth:2,                    // 画框线粗细
+            strokeStyle:"red" // 画框线颜色
+        }
+        const config2 = {
+            lineWidth:2,                    // 画框线粗细
+            strokeStyle:"red"   // 画框线颜色
+        }
+        foundCanvas.prepareCanvas(localBox,"canvasDiv",config);
+        // foundCanvas.prepareCanvas(localBox2,"canvasDiv2",config2);
+    </script>
+</body>
+</html>

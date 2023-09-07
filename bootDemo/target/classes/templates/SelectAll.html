@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            let checkedAllBtn = document.getElementById("checkedAllBtn");
+            let checkedNoBtn = document.getElementById("checkedNoBtn");
+            let checkedRevBtn = document.getElementById("checkedRevBtn");
+            let checkAllBox = document.getElementById("checkAllBox");
+            let sendBtn = document.getElementById("sendBtn");
+
+
+            //    1.checkedAllBtn
+            checkedAllBtn.onclick = function () {
+                let elements = document.getElementsByName("items");
+                // document.write(elements.length);
+                for (let i=0;i<elements.length;i++){
+                    elements[i].checked=true;
+                }
+                checkAllBox.checked = true;
+            };
+        //    1.checkedNoBtn
+            checkedNoBtn.onclick = function () {
+                let elements = document.getElementsByName("items");
+                for (let i = 0; i < elements.length; i++) {
+                    elements[i].checked=false;
+                }
+                checkAllBox.checked = false;
+            };
+        //    1.checkedRevBtn
+            checkedRevBtn.onclick = function () {
+                let elements = document.getElementsByName("items");
+                for (let i = 0; i < elements.length; i++) {
+                    elements[i].checked = !elements[i].checked;
+                }
+            };
+        //    1.sendBtn
+            sendBtn.onclick = function () {
+                let elements = document.getElementsByName("items");
+                let array = new Array();
+                for (let i = 0; i < elements.length; i++) {
+                    if (elements[i].checked == true){
+                        array.push(elements[i].value);
+                    }
+                }
+                alert(array);
+            };
+        //    1.checkedAllBox
+            checkAllBox.onclick = function () {
+                let statue = checkAllBox.checked;
+                let elements = document.getElementsByName("items");
+                for (let i = 0; i < elements.length; i++) {
+                    elements[i].checked = statue;
+                }
+            };
+        //    1.items
+            let allElements = document.getElementsByName("items");
+            for (let i = 0; i < allElements.length; i++) {
+                allElements[i].onclick = function () {
+                    checkAllBox.checked = true;
+                    for (let j = 0; j < allElements.length; j++) {
+                        if (!allElements[j].checked){
+                            checkAllBox.checked = false;
+                            break;
+                        }
+                    }
+                }
+            };
+
+            //这种方法只会返回一个元素，如果符合条件的元素有多个，只返回第一个符合条件的
+            let element = document.querySelector(".box1 div");
+            // alert(element.innerHTML);
+        };
+    </script>
+</head>
+<body>
+    <form method="post" action="">
+        你喜欢的运动是？<input type="checkbox" id="checkAllBox"/> 全选/全不选
+        <br/>
+        <input type="checkbox" name="items" value="足球"/>足球
+        <input type="checkbox" name="items" value="篮球"/>篮球
+        <input type="checkbox" name="items" value="羽毛球"/>羽毛球
+        <input type="checkbox" name="items" value="乒乓球"/>乒乓球
+        <br>
+        <input type="button" id="checkedAllBtn" value="全 选">
+        <input type="button" id="checkedNoBtn" value="全不选">
+        <input type="button" id="checkedRevBtn" value="反 选">
+        <input type="button" id="sendBtn" value="提 交">
+    </form>
+
+    <div class="box1">
+        <div>in box1</div>
+    </div>
+
+</body>
+</html>

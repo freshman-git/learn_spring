@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: org.example.Test1
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.example.Test1
+test  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.example.Test1.test(Test1.java:17)
+

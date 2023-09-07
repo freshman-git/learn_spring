@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            /*绝对位置*/
+            position: absolute;
+        }
+
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: burlywood;
+            /*绝对位置*/
+            position: absolute;
+            left: 200px;
+            top: 200px;
+        }
+        #box3{
+            width: 100px;
+            height: 100px;
+            background-color: silver;
+            /*绝对位置*/
+            position: absolute;
+            left: 200px;
+            top: 300px;
+        }
+        #btn{
+            position: absolute;
+            left: 50px;
+            top: 250px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+
+
+            let box = document.getElementById("box");
+
+            /**
+             * 拖拽box
+             * 流程：
+             *        鼠标被按下 onmousedown
+             *        鼠标移动   onmousemove
+             *        鼠标松开   onmouseup
+             */
+            box.onmousedown = function (event) {
+
+                let moveXDis = event.clientX-box.offsetLeft;
+                let moveYDis = event.clientY-box.offsetTop;
+
+                document.onmousemove = function (event) {
+
+                    let clientX = event.clientX - moveXDis;
+                    let clientY = event.clientY - moveYDis;
+                    box.style.left = clientX+"px";
+                    box.style.top = clientY+"px";
+                };
+
+                //给box绑定，鼠标放到box2上时box仍然跟着鼠标移动，所以要给document绑定
+                // box.onmouseup = function () {
+                //     document.onmousemove = null;
+                // }
+
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+
+                return false;
+            };
+
+            let box3 = document.getElementById("box3");
+            box3.onwheel = function (event) {
+                alert(event.detail);
+            };
+
+            //本地存储只能存储字符串类型数据
+            localStorage.setItem("name","abc");
+            console.log(localStorage.getItem("name"));
+            localStorage.clear();
+
+            /**
+             * onkeydown:按键被按下
+             *
+             * onkeyup:按键被松开
+             * 键盘事件一般会绑定给一些可以获取到焦点的对象
+             *
+             * ctrlKey
+             * altKey
+             * shiftKey
+             * 判断这三个建是否被按下
+             */
+            document.onkeydown = function (event) {
+                // if (event.keyCode === 89){
+                //     console.log("y");
+                // }
+                // if (event.key === "y" && event.ctrlKey){
+                //     console.log("ctrl y");
+                // }
+
+                // if (event.key>="0" && event.key<="9"){
+                //     console.log("number");
+                // }else {
+                //     console.log("not num");
+                // }
+                // console.log(event.key);
+                let speed = 10;
+
+                if (event.ctrlKey){
+                    speed=50;
+                }
+                switch (event.key) {
+                    case "ArrowUp":
+                        box3.style.top = box3.offsetTop - speed + "px";
+                        // alert("up");
+                        break;
+                    case "ArrowDown":
+                        box3.style.top = box3.offsetTop + speed + "px";
+                        // alert("down");
+                        break;
+                    case "ArrowLeft":
+                        box3.style.left = box3.offsetLeft - speed + "px";
+                        // alert("left");
+                        break;
+                    case "ArrowRight":
+                        box3.style.left = box3.offsetLeft + speed + "px";
+                        // alert("right");
+                        break;
+                }
+            };
+            // let userAgent = navigator.userAgent;
+            // if (/Chrome/i.test(userAgent)){
+            //     alert('chrome');
+            // }
+            //
+            // history.back();
+            // history.forward();
+            //正数相当于forward，向前跳几个页面，负数往后跳几个页面
+            // history.go(1);
+
+            let btn = document.getElementById("btn");
+            btn.onclick = function () {
+                // alert(location);
+                // location = "http://www.baidu.com";
+                //相对路径会直接跳转到该页面
+                // location = "SelectAll.html";
+                let href = location.href;
+                let host = location.host;
+                let hostname = location.hostname;
+                let pathname = location.pathname;
+                let port = location.port;
+                let prototype = location.prototype;
+                //协议
+                let protocol = location.protocol;
+                //返回从问号开始的部分
+                let search = location.search;
+                //返回从#开始的部分
+                let hash = location.hash;
+                //http://localhost:63342/bootDemo/templates/slap.html?_ijt=q4v91rp8pimhtpm69kpj0b4brc,
+                // host:localhost:63342,
+                // hostname:localhost,
+                // pathname:/bootDemo/templates/slap.html,
+                // port:63342,
+                // prototype:undefined,
+                // protocol:http:,
+                // search:?_ijt=q4v91rp8pimhtpm69kpj0b4brc,
+                // hash
+                console.log("href:"+href+",host:"+host+",hostname:"+hostname+",pathname:"+pathname+
+                    ",port:"+port+",prototype:"+prototype+",protocol:"+protocol+",search:"+search+",hash:"+hash);
+
+                //用来跳转到其他页面，作用和直接修改location一样
+                location.assign("http://www.baidu.com");
+                //和刷新按钮一样
+                location.reload();
+            }
+        };
+    </script>
+</head>
+<body>
+
+    <div id="box"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <button id="btn">button</button>
+</body>
+</html>

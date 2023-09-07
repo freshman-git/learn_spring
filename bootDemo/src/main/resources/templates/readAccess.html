@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #docInfo{
+            width: 150px;
+            height: 200px;
+            background-color: aqua;
+            overflow: auto;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+            let docInfo = document.getElementById("docInfo");
+            let tagName = document.getElementsByTagName("input");
+            docInfo.onscroll = function () {
+                if (Math.abs(docInfo.scrollHeight-docInfo.scrollTop - docInfo.clientHeight)<1){
+                    tagName[0].disabled = false;
+                    tagName[1].disabled = false;
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+
+        <p id="docInfo">
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            v
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaavv
+            vaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            v
+            v
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        </p>
+
+    <input type="checkbox" disabled="disabled">我已阅读
+    <input type="submit" value="submit" disabled="disabled">
+</body>
+</html>

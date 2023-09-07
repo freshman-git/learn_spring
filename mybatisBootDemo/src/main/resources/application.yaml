@@ -1,0 +1,16 @@
+spring:
+  thymeleaf:
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    servlet:
+      content-type: application/json
+  datasource:
+    username: root
+    password: 1234
+    url: jdbc:mysql://localhost:3306/ssm?serverTimezone=UTC
+  redis:
+    port: 6379
+    host: localhost
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
