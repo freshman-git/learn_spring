@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let arr = [1,2,3,2,1];
+
+    //    数组去重
+        let res = [...new Set(arr)];
+        // console.log(res);
+
+    //    交集
+        let arr2 = [3,4,4,6];
+        // let result = [...new Set(arr)].filter(item=>new Set(arr2).has(item));
+        // console.log(result);
+
+    //    并集
+        let res2 = [...new Set([...arr, ...arr2])];
+        // console.log(res2);
+
+        // let re = arr.reduce(function (prev,cur) {
+        //     return prev+cur;
+        // });
+
+        // let re = arr.reduce(function (prev,cur) {
+        //     return prev+cur;
+        // },10);
+
+        let re = arr.reduce((prev,cur) => prev+cur,10);
+        // console.log(re);
+
+        const a = [
+            {name:"a",
+            price:1999},
+            {name:"b",
+            price: 2999}
+        ]
+        const findA = function (item) {
+            return item.name === "a";
+        }
+        let find = a.find(findA);
+        // console.log(find);
+
+        const spec = {
+            size:"40*40cm",
+            color:"黑色"
+        }
+        let strings = Object.values(spec);
+        let temp =strings.join("/");
+        console.log(temp);
+
+    </script>
+</body>
+</html>

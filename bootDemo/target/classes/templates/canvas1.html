@@ -9,15 +9,24 @@
             height: 600px;
             border: 1px solid black;
             background-color: aqua;
+            margin-top: 20px;
+            position: absolute;
         }
         #img1{
             width: 400px;
             height: 600px;
         }
+        #btn{
+            margin-left: 410px;
+            margin-top: 20px;
+            position: absolute;
+            /*offset-start: 400px;*/
+        }
     </style>
 </head>
 <body>
 
+    <button id="btn">选择框</button>
     <div id="box">
         <img id="img1" src="./img/1.jpg">
     </div>
@@ -25,16 +34,32 @@
     <script type="text/javascript" src="./js/canvas1.js"></script>
     <script type="text/javascript">
 
+        const btn = document.querySelector("#btn");
+        window.onload = function () {
+            btn.onclick = function () {
+                alert("aaaa");
+            }
+        }
+
         const rects = [{x:140,y:35,w:80,h:15},{x:43,y:397,w:25,h:20}];
 
         const drawConfig = {
-            //划线宽度
-            lineWidth: 2,
-            //划线颜色
-            lineColor: "red"
+            // //划线宽度
+            // lineWidth: 2,
+            // //划线颜色
+            // lineColor: "red"
         }
 
+        //判断一个对象是不是空对象
+        // console.log(JSON.stringify(drawConfig) === '{}')
+        // console.log(Object.getOwnPropertyNames(drawConfig).length == 0)
+        // console.log(Object.keys(drawConfig).length === 0 )
+
         foundCanvas.prepareCanvas(rects,"box",drawConfig);
+
+
+
+
     </script>
 </body>
 </html>
