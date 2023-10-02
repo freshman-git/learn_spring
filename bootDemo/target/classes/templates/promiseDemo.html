@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const promise1 = new Promise(function (resolve,reject) {
+            setInterval(function () {
+                //调用resolve()，promise对象的状态变为成功，会执行then的第一个表示成功的函数
+                let data = "success";
+                resolve(data);
+
+                //调用reject()，promise对象的状态变为失败，会执行then的第二个表示失败的函数
+                // let err = "fail";
+                // reject(err);
+            },1000);
+        });
+
+        promise1.then(function (value) {
+            console.log(value);
+        },function (reason) {
+            console.log(reason);
+        });
+    </script>
+</body>
+</html>

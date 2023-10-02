@@ -10,15 +10,16 @@
         <module name="mybatisDemo" />
         <module name="springDemo" />
         <module name="springmvc_annotation" />
-        <module name="spring_xml" />
+        <module name="springmvc_handler" />
         <module name="mybatis_mbg" />
+        <module name="spring_xml" />
         <module name="spring_annotation" />
         <module name="springMvc_ajax" />
         <module name="spring_mvc" />
         <module name="factoryDemo" />
         <module name="springMVC_restful" />
         <module name="spring-proxy" />
-        <module name="springmvc_handler" />
+        <module name="ssmProject" />
         <module name="spring-aop" />
       </profile>
     </annotationProcessing>

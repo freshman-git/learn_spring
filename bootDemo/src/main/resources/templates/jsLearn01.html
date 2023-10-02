@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.7.1.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+<body>
+    <div id="div1">div1</div>
+    <input id="input1" name="a">
+
+    <script type="text/javascript">
+        // let div1 = $("#div1");
+        // console.log(div1[0].innerHTML);
+        //
+        // //取单选框要用.prop(),id,name这种都可以,自定义属性只能用.attr()
+        // let input1 = $("#input1").attr("name");
+        // console.log(input1);
+        //
+        // let htmlIn = $("#div1").html("divdivdiv").html();
+        // console.log(htmlIn);
+
+        //添加元素
+        //1.前追加子元素
+        //   指定元素.prepend(内容)，在指定元素的前面最佳内容，内容可以是字符串，html元素，或者是jquery对象
+        //   $(内容).prependTo(指定元素) ，把内容添加到指定元素的最前面
+        //2.后追加子元素
+        //   指定元素.append(内容)，在指定元素的前面最佳内容，内容可以是字符串，html元素，或者是jquery对象
+        //   $(内容).appendTo(指定元素) ，
+        //3.前追加同级元素
+        //    before()   指定元素的前面追加内容
+        //4.后追加同级元素
+        //    after()    指定元素的后面追加内容
+        // let p = $("<h1>大字</h1>");
+        // console.log(p.html());
+
+        $.ajax({
+            type:"get",
+            url:"./json01.json",
+            data:{
+              name:"赵六",
+              age:24,
+              sex:"男",
+              birthday:"1997-09-01T00:00:00"
+            },
+            dataType:"json", 
+            success:function (data) {
+                console.log(data);
+            }
+        })
+    </script>
+</body>
+</html>

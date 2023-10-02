@@ -8,6 +8,7 @@
     <file type="web" url="file://$PROJECT_DIR$/springmvc_annotation" />
     <file type="web" url="file://$PROJECT_DIR$/springmvc_handler" />
     <file type="web" url="file://$PROJECT_DIR$/springMVC_restful" />
+    <file type="web" url="file://$PROJECT_DIR$/ssmProject" />
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
@@ -16,6 +17,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/ssmProject/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
